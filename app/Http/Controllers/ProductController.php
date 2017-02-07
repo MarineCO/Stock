@@ -59,4 +59,22 @@ class ProductController extends Controller
 
     	return back();
     }
+
+    public function getEdit($id) {
+
+    	$editProduct = \App\Product::find($id);
+
+    	return view('products.editProduct', ['editProduct' => $editProduct]);
+    }
+
+    public function postEditProduct($id, Request $request) {
+    	
+    	$editProduct = \App\Product::find($id);
+    	$editProduct->name = $request->name;
+    	$editProduct->price = $request->price;
+    	$editProduct->stock = $request->stock;
+    	$editProduct->save();
+
+    	return redirect('/products');
+    }
 }

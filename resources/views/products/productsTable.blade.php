@@ -25,6 +25,11 @@
 			<td>{{ $product->price / 100}} €</td>
 			<td>{{ $product->stock }}</td>
 			<td>
+				<form action="/products/edit/{{$product->id}}" method="GET">{{csrf_field()}}
+					<button class="btn btn-warning">Editer</button>
+				</form>
+			</td>
+			<td>
 				<form action="/products/delete/{{$product->id}}" method="POST">{{csrf_field()}}
 					<button class="btn btn-danger">Supprimer</button>
 				</form>
