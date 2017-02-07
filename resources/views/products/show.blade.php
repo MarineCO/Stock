@@ -9,9 +9,19 @@
 	
 	<ul>
 		<li>Id : {{ $produit->id }}</li>
-		<li>Prix : {{ $produit->price }} €</li>
-		<li>Stock actuel : {{ $produit->stock }}</li>
+		<li>Prix : {{ $produit->price / 100 }} €</li>
+		<li>Stock actuel : 
+			<form action="/products/sell/{{ $produit->id }}" method="POST">{{csrf_field()}}
+			<button>-</button>
+			<div>{{ $produit->stock }}</div>
+			</form>
+			<form action="/products/restock/{{ $produit->id }}" method="POST">{{csrf_field()}}
+			<button>+</button>
+			</form>
+		</li>
 	</ul>
+
+
 
 </body>
 </html>
