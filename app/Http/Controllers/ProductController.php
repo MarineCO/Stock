@@ -10,6 +10,7 @@ class ProductController extends Controller
 
     	$products = \App\Product::all();
 
-    	return view('products', ['products' => $products]);
+    	return view('products', ['produits' => $products]);
     }
+
 }

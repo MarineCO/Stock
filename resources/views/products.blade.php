@@ -16,7 +16,7 @@
 			<td>Etat du stock</td>
 		</tr>
 
-		@foreach ($products as $product)
+		@foreach ($produits as $product)
 			
 			<tr>
 				<td>{{ $product->id }}</td>
