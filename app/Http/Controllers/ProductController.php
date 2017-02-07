@@ -35,4 +35,21 @@ class ProductController extends Controller
     	$product->save();
     	return back(); //Return to the previous page
     }
+
+    public function getAdd() {
+
+    	return view('products.addProduct');
+    }
+
+    public function postAddProduct(Request $request) {
+
+    	$newProduct = new \App\Product;
+
+    	$newProduct->name = $request->name;
+    	$newProduct->price = $request->price;
+    	$newProduct->stock = $request->stock;
+    	$newProduct->save();
+
+    	return redirect('/products');
+    }
 }

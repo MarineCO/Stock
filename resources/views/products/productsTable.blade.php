@@ -22,13 +22,17 @@
 			<tr>
 				<td>{{ $product->id }}</td>
 				<td>{{ $product->name }}</td>
-				<td>{{ $product->price }} €</td>
+				<td>{{ $product->price / 100}} €</td>
 				<td>{{ $product->stock }}</td>
 			</tr>
 
 		@endforeach
-
+		
 	</table>
 
+	<form action="/products/add">
+		<button class="btn btn-primary">Ajouter un produit</button>
+	</form>
+	
 </body>
 </html>
