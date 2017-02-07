@@ -18,13 +18,18 @@
 		</tr>
 
 		@foreach ($produits as $product)
-			
-			<tr>
-				<td>{{ $product->id }}</td>
-				<td>{{ $product->name }}</td>
-				<td>{{ $product->price / 100}} €</td>
-				<td>{{ $product->stock }}</td>
-			</tr>
+
+		<tr>
+			<td>{{ $product->id }}</td>
+			<td>{{ $product->name }}</td>
+			<td>{{ $product->price / 100}} €</td>
+			<td>{{ $product->stock }}</td>
+			<td>
+				<form action="/products/delete/{{$product->id}}" method="POST">{{csrf_field()}}
+					<button class="btn btn-danger">Supprimer</button>
+				</form>
+			</td>
+		</tr>
 
 		@endforeach
 		
