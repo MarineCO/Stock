@@ -17,4 +17,8 @@ Route::get('/', function () {
 
 Route::get('/products', 'ProductController@getIndex');
 
-Route::get('/products/show/{id}', 'ProductController@getShow' );
+Route::get('/products/show/{id}', 'ProductController@getShow');
+
+Route::post('/products/sell/{id}', 'ProductController@postSell');
+
+Route::post('/products/restock/{id}', 'ProductController@postRestock');
