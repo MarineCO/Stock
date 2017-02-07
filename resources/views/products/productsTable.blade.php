@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Liste des produits</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 </head>
 <body>
 	<h1>Liste des produits</h1>

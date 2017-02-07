@@ -25,7 +25,7 @@ class ProductController extends Controller
     	$product = \App\Product::find($id);
     	$product->stock--;
     	$product->save();
-    	return back();
+    	return back(); //Return to the previous page
     }
 
     public function postRestock($id) {
@@ -33,6 +33,6 @@ class ProductController extends Controller
     	$product = \App\Product::find($id);
     	$product->stock++;
     	$product->save();
-    	return back();
+    	return back(); //Return to the previous page
     }
 }
