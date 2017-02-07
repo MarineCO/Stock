@@ -9,6 +9,7 @@
 	
 	<ul>
 		<li>Id : {{ $produit->id }}</li>
+		<!-- Price in cents in DB -> /100 -->
 		<li>Prix : {{ $produit->price / 100 }} €</li>
 		<li>Stock actuel : 
 			<form action="/products/sell/{{ $produit->id }}" method="POST">{{csrf_field()}}
