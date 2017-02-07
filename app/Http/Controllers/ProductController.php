@@ -10,7 +10,13 @@ class ProductController extends Controller
 
     	$products = \App\Product::all();
 
-    	return view('products', ['produits' => $products]);
+    	return view('products.productsTable', ['produits' => $products]);
     }
 
+    public function getShow($id) {
+
+    	$product = \App\Product::find($id);
+
+    	return view('products.show', ['produit' => $product]);
+    }
 }
