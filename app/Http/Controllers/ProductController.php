@@ -19,4 +19,20 @@ class ProductController extends Controller
 
     	return view('products.show', ['produit' => $product]);
     }
+
+    public function postSell($id) {
+
+    	$product = \App\Product::find($id);
+    	$product->stock--;
+    	$product->save();
+    	return back();
+    }
+
+    public function postRestock($id) {
+
+    	$product = \App\Product::find($id);
+    	$product->stock++;
+    	$product->save();
+    	return back();
+    }
 }
