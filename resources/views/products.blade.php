@@ -8,7 +8,7 @@
 	<h1>Liste des produits</h1>
 
 	<table>
-	
+
 		<tr>
 			<td>Id du produit</td>
 			<td>Nom du produit</td>
@@ -16,7 +16,7 @@
 			<td>Etat du stock</td>
 		</tr>
 
-		<?php foreach ($products as $product) : ?> 
+		@foreach ($products as $product)
 			
 			<tr>
 				<td>{{ $product->id }}</td>
@@ -25,7 +25,7 @@
 				<td>{{ $product->stock }}</td>
 			</tr>
 
-		<?php endforeach ?>
+		@endforeach
 
 	</table>
 
