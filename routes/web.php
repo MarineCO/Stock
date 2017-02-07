@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'ProductController@getIndex');
+Route::get('/products', 'ProductController@getIndex');
