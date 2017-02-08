@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 </head>
 <body>
-
+r
 	<h1>Editer le produit sélectionné</h1>
 
 	<form action="/products/editProduct/{{$editProduct->id}}" method="POST">
