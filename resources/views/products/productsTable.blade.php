@@ -31,6 +31,8 @@
 			</td>
 			<td>
 				<form action="/products/delete/{{$product->id}}" method="POST">{{csrf_field()}}
+				{{ method_field('DELETE') }}
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<button class="btn btn-danger">Supprimer</button>
 				</form>
 			</td>
@@ -43,6 +45,5 @@
 	<form action="/products/add">
 		<button class="btn btn-primary">Ajouter un produit</button>
 	</form>
-	
 </body>
 </html>

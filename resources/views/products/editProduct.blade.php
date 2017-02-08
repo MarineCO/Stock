@@ -6,7 +6,11 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 </head>
 <body>
+
+	<h1>Editer le produit sélectionné</h1>
+
 	<form action="/products/editProduct/{{$editProduct->id}}" method="POST">
+		{{ method_field('PUT') }}
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 		<div class="form-group">
@@ -26,5 +30,6 @@
 
 		<input type="submit" class="btn btn-success" value="Editer le produit">
 	</form>
+
 </body>
 </html>
