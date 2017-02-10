@@ -1,20 +1,65 @@
+(function() {
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+	'use strict';
 
-require('./bootstrap');
+	let app = {
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+		init: function() {
+			this.listeners();
+		},
 
-Vue.component('example', require('./components/Example.vue'));
+		listeners: function() {
+			$('#sell').on('click', this.ajaxSell);
+			$('#restock').on('click', this.ajaxRestock);
+		},
 
-const app = new Vue({
-    el: '#app'
-});
+		ajaxSell : function() {
+			let id = $(this).data("id");
+
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+			
+			$.post("/products/sell/" + id)
+			.done(app.ajaxSellDone)
+			.fail(app.ajaxSellFail);
+		},
+
+
+		ajaxSellDone: function($response) {	
+			$("#stock").html($response);
+		},
+
+		ajaxSellFail: function() {
+			console.log('Sell Fail');
+		},
+
+		ajaxRestock : function() {
+			let id = $(this).data("id");
+
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+			
+			$.post("/products/restock/" + id)
+			.done(app.ajaxRestockDone)
+			.fail(app.ajaxRestockFail);
+		},
+
+
+		ajaxRestockDone: function($response) {	
+			$("#stock").html($response);
+		},
+
+		ajaxRestockFail: function() {
+			console.log('Restock Fail');
+		}
+	};
+
+	app.init();
+
+})();

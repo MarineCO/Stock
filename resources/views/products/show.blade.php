@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>Caractéristique d'un produit de la liste</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 </head>
@@ -15,14 +16,12 @@
 	</ul>
 	<h3>Etat du stock actuel : </h3>
 	<div>
-		<form action="/products/sell/{{ $produit->id }}" method="POST">{{csrf_field()}}
-			<button class="btn btn-primary">-</button>
-			<H4>{{ $produit->stock }}</h4>
-		</form>
-		<form action="/products/restock/{{ $produit->id }}" method="POST">{{csrf_field()}}
-			<button class="btn btn-primary">+</button>
-		</form>
+
+		<button id="sell" data-id="{{ $produit->id }}" class="btn btn-primary">-</button>
+		<h4 id="stock">{{ $produit->stock }}</h4>	
+		<button id="restock" data-id="{{ $produit->id }}" class="btn btn-primary">+</button>
 	</div>
 
+	<script type="text/javascript" src="{{mix('/js/app.js')}}"></script>
 </body>
 </html>
